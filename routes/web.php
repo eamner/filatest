@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/form', \App\Http\Livewire\Form::class);
+Route::get('/empresa', \App\Http\Livewire\Empresa::class);
