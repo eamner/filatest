@@ -15,10 +15,12 @@ class EditEmpresa extends EditRecord
     protected function getSteps(): array
     {
         return [
-            Forms\Components\Wizard\Step::make('Datos 1')
+            Forms\Components\Wizard\Step::make('1- Datos Generales')
                 ->schema([
                     Forms\Components\TextInput::make('rif')->required(),
-                    Forms\Components\TextInput::make('name')->required(),
+                    Forms\Components\TextInput::make('name')->label(__('Nombre de la Empresa'))->required(),
+                    //Forms\Components\TextInput::make('ano_fund')->label('Año de Fundación'),
+                    Forms\Components\TextInput::make('ano_fund')->integer(),
                     Forms\Components\TextInput::make('phone'),
                 ]),
             Forms\Components\Wizard\Step::make('Datos 2')

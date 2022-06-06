@@ -12,6 +12,7 @@ class Empresa extends Model
     protected $fillable = [
         'rif',
         'name',
+        'ano_fund',
         'phone',
         'website',
         'address',
@@ -21,5 +22,9 @@ class Empresa extends Model
         'facebook_profile',
         'youtube_profile',
 
+    ];
+
+    protected $hidden = [
+        'address',
     ];
 }

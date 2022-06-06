@@ -16,10 +16,11 @@ class CreateEmpresa extends CreateRecord
     protected function getSteps(): array
     {
         return [
-            Wizard\Step::make('Datos 1')
+            Wizard\Step::make('1 - Datos Generales')
                 ->schema([
                     Forms\Components\TextInput::make('rif')->required(),
                     Forms\Components\TextInput::make('name')->required(),
+                    Forms\Components\TextInput::make('ano_fund'),
                     Forms\Components\TextInput::make('phone'),
                 ]),
             Wizard\Step::make('Datos 2')

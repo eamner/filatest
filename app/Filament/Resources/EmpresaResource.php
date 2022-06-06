@@ -19,12 +19,14 @@ class EmpresaResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('rif')->required(),
                 Forms\Components\TextInput::make('name')->required(),
+                Forms\Components\TextInput::make('ano_fund')->integer(),
                 Forms\Components\TextInput::make('phone'),
                 Forms\Components\TextInput::make('website')->url(),
                 Forms\Components\TextInput::make('address'),
@@ -33,7 +35,7 @@ class EmpresaResource extends Resource
                 Forms\Components\TextInput::make('instagram_profile'),
                 Forms\Components\TextInput::make('facebook_profile'),
                 Forms\Components\TextInput::make('youtube_profile'),
-            ]);
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
@@ -42,9 +44,9 @@ class EmpresaResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('rif'),
                 Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('ano_fund'),
                 Tables\Columns\TextColumn::make('phone'),
                 Tables\Columns\TextColumn::make('website'),
-                Tables\Columns\TextColumn::make('address'),
                 Tables\Columns\TextColumn::make('linkedin_profile'),
                 Tables\Columns\TextColumn::make('twitter_profile'),
                 Tables\Columns\TextColumn::make('instagram_profile'),

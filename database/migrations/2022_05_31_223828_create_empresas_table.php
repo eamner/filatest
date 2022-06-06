@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('rif')->unique();
             $table->string('name');
+            $table->year('ano_fund')->nullable();
             $table->string('phone')->nullable();
             $table->string('website')->nullable();
             $table->string('address')->nullable();
