@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Forms\Components\Fieldset;
 
 class EmpresaResource extends Resource
 {
@@ -26,20 +27,30 @@ class EmpresaResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('rif')->required(),
                 Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('ano_fund')->integer(),
+                Forms\Components\TextInput::make('ano_fund'),
                 Forms\Components\TextInput::make('phone'),
+                /*Fieldset::make('Label')->schema([
+                    Forms\Components\TextInput::make('calle'),
+                    Forms\Components\TextInput::make('ciudad'),
+                    Forms\Components\TextInput::make('estado'),
+                    Forms\Components\TextInput::make('pais'),
+                ]),*/
+                Forms\Components\TextInput::make('city_id'),
                 Forms\Components\TextInput::make('website')->url(),
-                Forms\Components\TextInput::make('address'),
                 Forms\Components\TextInput::make('linkedin_profile'),
                 Forms\Components\TextInput::make('twitter_profile'),
                 Forms\Components\TextInput::make('instagram_profile'),
                 Forms\Components\TextInput::make('facebook_profile'),
                 Forms\Components\TextInput::make('youtube_profile'),
+                Forms\Components\BelongsToSelect::make('city_id')
+                    ->relationship('cities', 'city_name')
             ])->columns(3);
     }
 
     public static function table(Table $table): Table
     {
+        static $max = 2155;
+
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('rif'),

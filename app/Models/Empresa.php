@@ -9,13 +9,18 @@ class Empresa extends Model
 {
     use HasFactory;
 
+    //protected $primaryKey = 'empresaId';
+
     protected $fillable = [
         'rif',
         'name',
         'ano_fund',
         'phone',
         'website',
-        'address',
+        'street',
+        'city_id',
+        /*'state_id',
+        'country_id',*/
         'linkedin_profile',
         'twitter_profile',
         'instagram_profile',
@@ -25,6 +30,11 @@ class Empresa extends Model
     ];
 
     protected $hidden = [
-        'address',
+        //---
     ];
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
 }
