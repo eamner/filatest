@@ -87,10 +87,11 @@ return [
     |
     */
 
-    'auth' => [
-        'guard' => env('FILAMENT_AUTH_GUARD', 'web'),
-        'pages' => [
-            'login' => \Filament\Http\Livewire\Auth\Login::class,
+    "auth" => [
+        "guard" => env("FILAMENT_AUTH_GUARD", "web"),
+        "pages" => [
+            "login" =>
+            \JeffGreco13\FilamentBreezy\Http\Livewire\Auth\Login::class,
         ],
     ],
 
@@ -277,6 +278,7 @@ return [
     'middleware' => [
         'auth' => [
             Authenticate::class,
+            //Illuminate\Auth\Middleware\EnsureEmailIsVerified::class
         ],
         'base' => [
             EncryptCookies::class,
