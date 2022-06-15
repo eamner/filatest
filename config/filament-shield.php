@@ -23,6 +23,11 @@ return [
         'role_name' => 'filament_user',
     ],
 
+    'affiliates' => [
+        'enabled'   => true,
+        'role_name' => 'affiliates',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Default Prefixes
@@ -37,7 +42,7 @@ return [
     */
 
     'prefixes' => [
-        'resource' => ["view","view_any","create","delete","delete_any","update","export"],
+        'resource' => ["view", "view_any", "create", "delete", "delete_any", "update", "export"],
         'page'  =>  'view',
         'widget' => 'view'
     ],
@@ -54,7 +59,7 @@ return [
         'pages' => true,
         'widgets' => true,
         'resources' => true,
-        'custom_permissions' => false,
+        'custom_permissions' => true,
     ],
 
     /*
@@ -85,7 +90,7 @@ return [
     'exclude' => [
         'enabled' => true,
         'pages' => ["Dashboard"],
-        'widgets' => ["AccountWidget","FilamentInfoWidget"],
+        'widgets' => ["AccountWidget", "FilamentInfoWidget"],
         'resources' => [],
     ],
 

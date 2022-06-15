@@ -278,7 +278,7 @@ return [
     'middleware' => [
         'auth' => [
             Authenticate::class,
-            //Illuminate\Auth\Middleware\EnsureEmailIsVerified::class
+            Illuminate\Auth\Middleware\EnsureEmailIsVerified::class
         ],
         'base' => [
             EncryptCookies::class,
